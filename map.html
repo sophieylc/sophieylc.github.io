@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vietnam Trip Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand">🇻🇳 Vietnam 2026</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="map.html">Map</a>
+    <a href="itinerary.html">Itinerary</a>
+  </div>
+</nav>
+
+<div class="map-layout">
+  <aside class="sidebar">
+    <h2>Interactive Map</h2>
+    <p class="muted">Food, lodging, activities, family places, basketball, and transport. Click any dot to open details and save local notes.</p>
+    <input id="search" class="search" placeholder="Search places, cities, categories..." />
+    <div style="display:flex;gap:8px;margin-bottom:10px;">
+      <button id="showAll" class="btn" style="padding:8px 10px;">Show all</button>
+      <button id="hideAll" class="btn secondary" style="padding:8px 10px;">Hide all</button>
+    </div>
+    <div id="filters" class="filter-grid"></div>
+    <h3 id="count"></h3>
+    <div id="locationList" class="location-list"></div>
+  </aside>
+  <main id="map"></main>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data/locations.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>
