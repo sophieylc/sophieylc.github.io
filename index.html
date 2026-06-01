@@ -277,9 +277,366 @@ Hanoi → Phúc
 const map=L.map('map').setView([16.5,106],6);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-const places=[{"name": "Saigon", "lat": 10.7769, "lng": 106.7009, "type": "city"}, {"name": "Can Tho", "lat": 10.0452, "lng": 105.7469, "type": "city"}, {"name": "Hanoi", "lat": 21.0285, "lng": 105.8542, "type": "city"}, {"name": "Sapa", "lat": 22.3364, "lng": 103.8438, "type": "city"}, {"name": "Ninh Binh", "lat": 20.2506, "lng": 105.9745, "type": "city"}];
-places.forEach(p=>{
- L.marker([p.lat,p.lng]).addTo(map).bindPopup(`<b>${p.name}</b>`);
+
+const places = [
+
+  // =========================
+  // SAIGON
+  // =========================
+  {
+    name: "Independence Palace (Dinh Doc Lap)",
+    lat: 10.7771,
+    lng: 106.6953,
+    city: "Saigon",
+    type: "attraction"
+  },
+  {
+    name: "Le Quy Don High School",
+    lat: 10.7847,
+    lng: 106.6919,
+    city: "Saigon",
+    type: "family"
+  },
+  {
+    name: "War Remnants Museum",
+    lat: 10.7795,
+    lng: 106.6920,
+    city: "Saigon",
+    type: "attraction"
+  },
+  {
+    name: "Ben Thanh Market",
+    lat: 10.7724,
+    lng: 106.6980,
+    city: "Saigon",
+    type: "attraction"
+  },
+  {
+    name: "Vinh Nghiem Pagoda",
+    lat: 10.7870,
+    lng: 106.6778,
+    city: "Saigon",
+    type: "temple"
+  },
+  {
+    name: "Notre Dame Cathedral",
+    lat: 10.7798,
+    lng: 106.6990,
+    city: "Saigon",
+    type: "church"
+  },
+  {
+    name: "Saigon Opera House",
+    lat: 10.7766,
+    lng: 106.7031,
+    city: "Saigon",
+    type: "theater"
+  },
+  {
+    name: "Vietnam Water Puppet Theater",
+    lat: 10.7718,
+    lng: 106.6947,
+    city: "Saigon",
+    type: "theater"
+  },
+  {
+    name: "Cafe Apartments",
+    lat: 10.7738,
+    lng: 106.7042,
+    city: "Saigon",
+    type: "cafe"
+  },
+  {
+    name: "Central Post Office",
+    lat: 10.7801,
+    lng: 106.6992,
+    city: "Saigon",
+    type: "attraction"
+  },
+  {
+    name: "Banh Mi Hong Hoa",
+    lat: 10.7725,
+    lng: 106.6878,
+    city: "Saigon",
+    type: "food"
+  },
+  {
+    name: "Banh Cuon Tay Ho",
+    lat: 10.7807,
+    lng: 106.6878,
+    city: "Saigon",
+    type: "food"
+  },
+  {
+    name: "Banh Canh Cua 87",
+    lat: 10.7702,
+    lng: 106.6900,
+    city: "Saigon",
+    type: "food"
+  },
+  {
+    name: "Bep Me In",
+    lat: 10.7800,
+    lng: 106.6918,
+    city: "Saigon",
+    type: "food"
+  },
+
+  // =========================
+  // HUE
+  // =========================
+  {
+    name: "Imperial City",
+    lat: 16.4695,
+    lng: 107.5787,
+    city: "Hue",
+    type: "attraction"
+  },
+  {
+    name: "An Dinh Palace",
+    lat: 16.4569,
+    lng: 107.5930,
+    city: "Hue",
+    type: "attraction"
+  },
+  {
+    name: "Tomb of Minh Mang",
+    lat: 16.4296,
+    lng: 107.5616,
+    city: "Hue",
+    type: "attraction"
+  },
+  {
+    name: "Tomb of Khai Dinh",
+    lat: 16.3976,
+    lng: 107.5905,
+    city: "Hue",
+    type: "attraction"
+  },
+  {
+    name: "Thien Mu Pagoda",
+    lat: 16.4537,
+    lng: 107.5450,
+    city: "Hue",
+    type: "temple"
+  },
+
+  // =========================
+  // HANOI
+  // =========================
+  {
+    name: "Tran Quoc Pagoda",
+    lat: 21.0477,
+    lng: 105.8366,
+    city: "Hanoi",
+    type: "temple"
+  },
+  {
+    name: "West Lake",
+    lat: 21.0544,
+    lng: 105.8218,
+    city: "Hanoi",
+    type: "attraction"
+  },
+  {
+    name: "One Pillar Pagoda",
+    lat: 21.0357,
+    lng: 105.8347,
+    city: "Hanoi",
+    type: "temple"
+  },
+  {
+    name: "Vietnam Museum of Ethnology",
+    lat: 21.0405,
+    lng: 105.7981,
+    city: "Hanoi",
+    type: "museum"
+  },
+  {
+    name: "Vietnam Military History Museum",
+    lat: 21.0343,
+    lng: 105.8371,
+    city: "Hanoi",
+    type: "museum"
+  },
+  {
+    name: "Imperial Citadel of Thang Long",
+    lat: 21.0374,
+    lng: 105.8370,
+    city: "Hanoi",
+    type: "attraction"
+  },
+  {
+    name: "Temple of Literature",
+    lat: 21.0281,
+    lng: 105.8357,
+    city: "Hanoi",
+    type: "attraction"
+  },
+  {
+    name: "Hoan Kiem Lake",
+    lat: 21.0288,
+    lng: 105.8524,
+    city: "Hanoi",
+    type: "attraction"
+  },
+  {
+    name: "Old Quarter",
+    lat: 21.0355,
+    lng: 105.8519,
+    city: "Hanoi",
+    type: "attraction"
+  },
+  {
+    name: "Train Street",
+    lat: 21.0245,
+    lng: 105.8412,
+    city: "Hanoi",
+    type: "attraction"
+  },
+  {
+    name: "Hoa Lo Prison",
+    lat: 21.0255,
+    lng: 105.8483,
+    city: "Hanoi",
+    type: "museum"
+  },
+  {
+    name: "Ho Chi Minh Mausoleum",
+    lat: 21.0368,
+    lng: 105.8347,
+    city: "Hanoi",
+    type: "attraction"
+  },
+  {
+    name: "Huong Pagoda",
+    lat: 20.6155,
+    lng: 105.7440,
+    city: "Hanoi",
+    type: "temple"
+  },
+  {
+    name: "Oleoleo Cat Cafe",
+    lat: 21.0315,
+    lng: 105.8500,
+    city: "Hanoi",
+    type: "cafe"
+  },
+  {
+    name: "Banh Mi Tram",
+    lat: 21.0289,
+    lng: 105.8486,
+    city: "Hanoi",
+    type: "food"
+  },
+  {
+    name: "Tuyet Bun Cha 34",
+    lat: 21.0296,
+    lng: 105.8458,
+    city: "Hanoi",
+    type: "food"
+  },
+  {
+    name: "Loading T Cafe",
+    lat: 21.0270,
+    lng: 105.8498,
+    city: "Hanoi",
+    type: "cafe"
+  },
+  {
+    name: "Banh Cuon Ba Xuan",
+    lat: 21.0310,
+    lng: 105.8477,
+    city: "Hanoi",
+    type: "food"
+  },
+  {
+    name: "Hanoi Coffee Culture",
+    lat: 21.0320,
+    lng: 105.8570,
+    city: "Hanoi",
+    type: "cafe"
+  },
+  {
+    name: "Quan An Ngon",
+    lat: 21.0239,
+    lng: 105.8445,
+    city: "Hanoi",
+    type: "food"
+  },
+
+  // =========================
+  // NINH BINH
+  // =========================
+  {
+    name: "Hoa Lu Ancient Capital",
+    lat: 20.2537,
+    lng: 105.9746,
+    city: "Ninh Binh",
+    type: "attraction"
+  },
+  {
+    name: "Van Long Nature Reserve",
+    lat: 20.3042,
+    lng: 105.8716,
+    city: "Ninh Binh",
+    type: "nature"
+  },
+  {
+    name: "Bai Dinh Pagoda",
+    lat: 20.2877,
+    lng: 105.7560,
+    city: "Ninh Binh",
+    type: "temple"
+  },
+  {
+    name: "Trang An Scenic Area",
+    lat: 20.2578,
+    lng: 105.9073,
+    city: "Ninh Binh",
+    type: "nature"
+  },
+  {
+    name: "Tam Coc Cong Rong Coffee",
+    lat: 20.2169,
+    lng: 105.9365,
+    city: "Ninh Binh",
+    type: "cafe"
+  },
+  {
+    name: "Tam Coc Noodle Soup Restaurant",
+    lat: 20.2160,
+    lng: 105.9370,
+    city: "Ninh Binh",
+    type: "food"
+  },
+  {
+    name: "CoffeeCat",
+    lat: 20.2178,
+    lng: 105.9382,
+    city: "Ninh Binh",
+    type: "cafe"
+  },
+  {
+    name: "Tam Coc Pet Coffee",
+    lat: 20.2185,
+    lng: 105.9395,
+    city: "Ninh Binh",
+    type: "cafe"
+  }
+
+];  
+  
+  
+  
+places.forEach(p => {
+  L.marker([p.lat, p.lng])
+    .addTo(map)
+    .bindPopup(`
+      <b>${p.name}</b><br>
+      ${p.city}<br>
+      ${p.type}
+    `);
 });
 
 L.polyline(places.map(p=>[p.lat,p.lng])).addTo(map);
